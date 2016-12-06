@@ -5,7 +5,7 @@ angular.module('users', ['ngRoute']).config(function ($routeProvider) {
     })
 }).controller('userCtr', function ($scope, $http) {
     $http.get('users').success(function (data) {
-    	alert(data+"");
+    	console.log(JSON.stringify(data));
         $scope.userList = data;
     });
 });

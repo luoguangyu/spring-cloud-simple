@@ -19,10 +19,11 @@ import feign.Request;
 @EnableEurekaClient
 @EnableCircuitBreaker
 @EnableFeignClients
-public class WebApplication {
+public class UserWebApplication
+{
 
 	public static void main(String[] args) throws Exception {
-		SpringApplication.run(WebApplication.class, args);
+		SpringApplication.run(UserWebApplication.class, args);
 	}
 	// tell spring to use load balance, restTemplate will use Ribbon to get the server address
 	@LoadBalanced

@@ -22,6 +22,7 @@ public class UserController
 {
 	private final Logger logger = Logger.getLogger(getClass());
 
+	// get client(consumer) information
 	@Autowired
 	private DiscoveryClient client;
 
@@ -34,7 +35,8 @@ public class UserController
 		logger.debug("in add method");
 		ServiceInstance instance = client.getLocalServiceInstance();
 		Integer r = a + b;
-		logger.info("/add, host:" + instance.getHost() + ", service_id:" + instance.getServiceId() + ", result:" + r);
+		logger.debug("/users, host:" + instance.getHost() +", port: "+instance.getPort() + ", service_id:" + instance
+				.getServiceId());
 		return r;
 	}
 
@@ -43,8 +45,8 @@ public class UserController
 	{
 		logger.debug("getting all users");
 		ServiceInstance instance = client.getLocalServiceInstance();
-		logger.debug("/users, host:" + instance.getHost() + ", service_id:" + instance.getServiceId());
-
+		logger.debug("/users, host:" + instance.getHost() + ", port: " + instance.getPort() + ", service_id:" + instance
+				.getServiceId());
 		return userService.getUsers();
 	}
 }

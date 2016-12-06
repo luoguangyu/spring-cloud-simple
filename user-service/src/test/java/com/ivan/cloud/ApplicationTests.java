@@ -2,6 +2,7 @@ package com.ivan.cloud;
 
 import com.ivan.cloud.web.UserController;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -30,6 +31,7 @@ public class ApplicationTests {
 		mvc = MockMvcBuilders.standaloneSetup(new UserController()).build();
 	}
 
+	@Ignore
 	@Test
 	public void getAdd() throws Exception {
 		mvc.perform(MockMvcRequestBuilders.get("/add?a=1&&b=1").accept(MediaType.APPLICATION_JSON))
@@ -37,6 +39,7 @@ public class ApplicationTests {
 				.andExpect(content().string(equalTo("2")));
 	}
 
+	@Ignore
 	@Test
 	public void checkHealth() throws Exception {
 		mvc.perform(MockMvcRequestBuilders.get("/health").accept(MediaType.APPLICATION_JSON))

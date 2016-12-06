@@ -16,14 +16,16 @@ public class UserServiceImpl implements UserService
 	@Override
 	public List<User> getUsers()
 	{
-		User u = new User();
+
 		List<User> users = new ArrayList<>();
-		u.setId(1);
-		u.setName("user1");
-		users.add(u);
-		u.setId(2);
-		u.setName("user2");
-		users.add(u);
+		User u1 = new User();
+		u1.setId(1);
+		u1.setName("user1");
+		users.add(u1);
+		User u2 = new User();
+		u2.setId(2);
+		u2.setName("user2");
+		users.add(u2);
 
 		return users;
 	}

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController
 {
 
-	@Value("${serverValue}")
+	@Value("${server}")
 	private String serverValue;
 
 	@Autowired

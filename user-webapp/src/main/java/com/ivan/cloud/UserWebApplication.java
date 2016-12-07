@@ -17,7 +17,9 @@ import feign.Request;
 @SpringBootApplication
 // enable both register and discovery on/from Eureka
 @EnableEurekaClient
+// enable Hystrix
 @EnableCircuitBreaker
+// needed by Feign only, for ribbon no need this annotation
 @EnableFeignClients
 public class UserWebApplication
 {
@@ -25,13 +27,17 @@ public class UserWebApplication
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(UserWebApplication.class, args);
 	}
+	// below used for Ribbon --------------
 	// tell spring to use load balance, restTemplate will use Ribbon to get the server address
+	// pull server address list from eureka then do the load balance
 	@LoadBalanced
 	@Bean
 	RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
-	
+	// feign (declarative webservice, use interface defination)also uses ribbon
+	// below used for Feign --------------
+	/*
 	@Bean
 	@Scope("prototype")
 	public Feign.Builder feignBuilder() {
@@ -49,5 +55,5 @@ public class UserWebApplication
 	public Request.Options options() {
 		return new Request.Options(FIVE_SECONDS, FIVE_SECONDS);
 	}
-
+	*/
 }

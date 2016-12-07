@@ -7,3 +7,16 @@
 ##Start 2 instances for eureka-server
 * java -jar eureka-server-1.0.0.jar --server.port=9200 >log9200.log
 * java -jar eureka-server-1.0.0.jar --server.port=9201 >log9201.log
+
+## test config-server
+/{application}/{profile}[/{label}]
+
+/{application}-{profile}.yml
+
+/{label}/{application}-{profile}.yml
+
+/{application}-{profile}.properties
+
+/{label}/{application}-{profile}.properties
+
+http://localhost:9210/config-server/dev

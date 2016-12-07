@@ -30,8 +30,7 @@ public class UserService {
 		 //return feignUserService.readUserInfo();
 	 }	 
 	 private List<User> fallbackSearchAll() {
-		 logger.debug("HystrixCommand fallbackMethod handle!");
-		 System.out.println("HystrixCommand fallbackMethod handle!");
+		 logger.debug("Hystrix handling getUsers");
 		 List<User> ls = new ArrayList<User>();
 		 User user = new User();
 		 user.setName("TestHystrixCommand");

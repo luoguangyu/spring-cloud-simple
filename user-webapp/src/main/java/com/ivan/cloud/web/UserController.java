@@ -12,13 +12,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/*import cloud.simple.service.UserServiceProvider.FeignUserService;*/
-
 @RestController
 public class UserController
 {
 
-	@Value("${server}")
+	@Value("${serverName}")
 	private String serverValue;
 
 	@Autowired
@@ -47,6 +45,7 @@ public class UserController
 		return new ResponseEntity("no available users ", HttpStatus.BAD_REQUEST);
 	}
 
+	// test distributed-config
 	@RequestMapping(value = "/server-value")
 	public String getServerValue()
 	{
